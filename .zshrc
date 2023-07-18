@@ -49,7 +49,7 @@ function mkcd() {
 xmodmap ~/.Xmodmap/.Xmodmap
 
 # set shell looks
-export PS1="%!K(MISSING){cyan}%!F(MISSING){black} %!f(MISSING)%!k(MISSING)%!F(MISSING){cyan}%!K(MISSING){white}%!k(MISSING)%!f(MISSING)%!F(MISSING){black}%!K(MISSING){white} %!d(MISSING) %!k(MISSING)%!f(MISSING) "
+PROMPT="%~ "
 
 # set PATH
 export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
