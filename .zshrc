@@ -58,3 +58,6 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 # set alias
 alias exz='exec zsh'
+alias ls='ls --color=auto'
+alias \$=''
+alias \#='sudo'
