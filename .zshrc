@@ -1,58 +1,61 @@
 # Japanese setting
 export LANG=ja_JP.UTF-8
 
-# use colors
+# Use colors
 autoload -Uz colors
 colors
 
-# use compinit
+# Use compinit
 autoload -Uz compinit
 compinit
 
-# share history
+# Share history
 setopt share_history
 setopt histignorealldups
 HISTFILE=$ZDOTDIR/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-# omit cd command
+# Omit cd command
 setopt auto_cd
 
-# auto pushd
+# Auto pushd
 setopt auto_pushd
 setopt pushd_ignore_dups
 
-# auto correct commands
+# Auto correct commands
 setopt correct
 
-# choise correct commands by arrow key
+# Chose correct commands by arrow key
 zstyle ':completion:*:default' menu select=2
 
-# hit correct large character
+# Hit correct large character
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-# auto print date in history
+# Auto print date in history
 alias history='fc -lt '%F %T' 1'
 
-# run mkdir and cd at the same time
+# Run mkdir and cd at the same time
 function mkcd() {
   if [[ -d $1 ]]; then
-    echo "$1 already exists!"
-    cd $1
+    echo "$1 already exists"
+    cd $1 || exit
   else
-    mkdir -p $1 && cd $1
+    mkdir -p $1 && cd $1 || exit
   fi
 }
 
-# set key bind
+# Set key bind
 xmodmap ~/.Xmodmap/.Xmodmap
 
-# set shell looks
-PROMPT="%~ "
+# Set shell looks
+source "$(dirname "$0")/functions/CreatePrompt.zsh"
+PROMPT="$(prompt)"
+resetFunc
 
-# set alias
+# Set alias
 alias exz='exec zsh'
 alias ls='ls --color=auto'
 alias \$=''
 alias \#='sudo'
+alias rma='rm -r'
