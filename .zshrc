@@ -53,6 +53,8 @@ PROMPT="%~ "
 
 # set PATH
 export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 
 # set alias
 alias exz='exec zsh'
