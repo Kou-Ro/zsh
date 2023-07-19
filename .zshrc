@@ -51,7 +51,7 @@ xmodmap ~/.Xmodmap/.Xmodmap
 # Set shell looks
 source "$(dirname "$0")/functions/CreatePrompt.zsh"
 PROMPT="$(prompt)"
-resetFunc
+unsets
 
 # Set alias
 alias exz='exec zsh'
