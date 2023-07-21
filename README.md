@@ -15,7 +15,7 @@ git clone git@github.com:Kou-Ro/zsh ~/.dotfiles/zsh
 ln -s ~/.dotfiles/zsh/.zshenv ~/
 ```
 
-### 搭載内容
+### 機能
 * 日本語出力
 * コマンド補完
   * コマンド修正
