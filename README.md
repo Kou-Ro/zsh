@@ -1,6 +1,9 @@
 <div style="text-align: center;">
 <h1>zsh</h1>
 </div>
+<div style="text-align: right;">
+v1.1.0
+</div>
 
 ---
 
@@ -32,7 +35,9 @@ ln -s --backup=simple -S .bak ./.dotfiles/zsh/.zshenv
   * config/colorを編集することでカラースキーム変更可能
 * キーバインド(Xmodmap)読み込み
 * 関数
-    * mkcd : ディレクトリを作成し、そのディレクトリに入る
+  * zcon : 本リポジトリ操作用
+    * update : リポジトリアップデート
+  * mkcd : ディレクトリを作成し、そのディレクトリに入る
 * エイリアス
   * exz : exec zsh
   * $ : 

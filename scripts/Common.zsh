@@ -37,7 +37,9 @@ alias history='fc -lt '%F %T' 1'
 )
 
 # Set key bind
-xmodmap ~/.Xmodmap/.Xmodmap
+if [[ -e "$HOME/.Xmodmap/.Xmodmap" ]]; then
+  xmodmap ~/.Xmodmap/.Xmodmap
+fi
 
 # Functions
 # zsh config settings
