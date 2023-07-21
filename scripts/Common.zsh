@@ -31,9 +31,9 @@ setopt histignorealldups
 alias history='fc -lt '%F %T' 1'
 
 # Shell looks settings
-(
+PROMPT=$(
   source "$ZDOTDIR/scripts/CreatePrompt.zsh"
-  PROMPT="$(prompt)"
+  prompt
 )
 
 # Set key bind
