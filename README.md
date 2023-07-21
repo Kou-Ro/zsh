@@ -1,6 +1,9 @@
 <div style="text-align: center;">
 <h1>zsh</h1>
 </div>
+<div style="text-align: right;">
+v1.1.0
+</div>
 
 ---
 
@@ -11,28 +14,33 @@
 
 ```shell
 mkdir -p ~/.dotfiles
-git clone git@github.com:Kou-Ro/zsh ~/.dotfiles/zsh
-ln -s ~/.dotfiles/zsh/.zshenv ~/
+git clone https://github.com/Kou-Ro/zsh.git
+ln -s --backup=simple -S .bak ./.dotfiles/zsh/.zshenv
 ```
 
 ### 機能
 * 日本語出力
-* カラー出力
 * コマンド補完
-* history共有
-* ディレクトリ名のみでのカレントディレクトリ移動
-* ディレクトリ移動履歴保存
-* コマンド修正
-* コマンド補完矢印キー選択
-* コマンド補完大・小文字両対応
+  * コマンド修正
+  * コマンド補完大・小文字両対応
+  * コマンド補完矢印キー選択
+* ディレクトリ移動補完
+  * ディレクトリ名のみでのカレントディレクトリ移動
+  * ディレクトリ移動履歴保存
+* history
+  * history共有
+  * 重複history削除
+  * history日時表示
+* カスタムプロンプト
+  * config/colorを編集することでカラースキーム変更可能
 * キーバインド(Xmodmap)読み込み
-* ls自動色付き表示
 * 関数
-    * mkcd : ディレクトリを作成し、そのディレクトリに入る
+  * zcon : 本リポジトリ操作用
+    * update : リポジトリアップデート
+  * mkcd : ディレクトリを作成し、そのディレクトリに入る
 * エイリアス
   * exz : exec zsh
   * $ : 
   * \# : sudo
   * rma : rm -r
-* カスタムプロンプト
-  * config/colorを編集することでカラースキーム変更可能
+  * ls : ls --color=auto
