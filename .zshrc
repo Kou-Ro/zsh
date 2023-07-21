@@ -1,2 +1,2 @@
 # ReadCommon
-source "$(dirname "$0")/scripts/Common.zsh"
+source "$ZDOTDIR/scripts/Common.zsh"
