@@ -41,12 +41,15 @@ xmodmap ~/.Xmodmap/.Xmodmap
 
 # Functions
 # Run mkdir and cd at the same time
-function mkcd() {
-  if [[ -d "$1" ]]; then
-    echo "$1 already exists"
-    cd "$1" || exit
+mkcd() {
+  if [[ $# -ge 1 ]]; then
+    if [[ -d "$1" ]]; then
+      cd "$1" || exit
+    else
+      mkdir -p "$1" && cd "$1" || exit
+    fi
   else
-    mkdir -p "$1" && cd "$1" || exit
+    cd "$HOME" || exit
   fi
 }
 
