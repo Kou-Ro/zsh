@@ -11,7 +11,7 @@
 
 ```shell
 mkdir -p ~/.dotfiles
-git clone git@github.com:Kou-Ro/zsh ~/.dotfiles/zsh
+git clone https://github.com/Kou-Ro/zsh.git
 ln -s --backup=simple -S .bak ./.dotfiles/zsh/.zshenv
 ```
 

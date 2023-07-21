@@ -31,15 +31,31 @@ setopt histignorealldups
 alias history='fc -lt '%F %T' 1'
 
 # Shell looks settings
-source "$ZDOTDIR/scripts/CreatePrompt.zsh"
-PROMPT="$(prompt)"
-unsets
-unset -f unsets
+(
+  source "$ZDOTDIR/scripts/CreatePrompt.zsh"
+  PROMPT="$(prompt)"
+)
 
 # Set key bind
 xmodmap ~/.Xmodmap/.Xmodmap
 
 # Functions
+# zsh config settings
+zcon() {
+  (
+    source "$ZDOTDIR/scripts/ZshConfig.zsh"
+
+    if [[ $# -eq 0 ]]; then
+      zcon-help
+    else
+      if [[ "$1" = "update" ]]; then
+        zcon-update
+      else
+        print "The command not found : $1"
+      fi
+    fi
+  )
+}
 # Run mkdir and cd at the same time
 mkcd() {
   if [[ $# -ge 1 ]]; then
