@@ -12,7 +12,7 @@
 ```shell
 mkdir -p ~/.dotfiles
 git clone git@github.com:Kou-Ro/zsh ~/.dotfiles/zsh
-ln -s ~/.dotfiles/zsh/.zshenv ~/
+ln -s --backup=simple -S .bak ./.dotfiles/zsh/.zshenv
 ```
 
 ### 機能
