@@ -32,12 +32,12 @@ setBack() {
 
 # output user info with color
 user() {
-  print "$(setBack "$(setFore "%n@%m" "${COLORS[1]}")" "${COLORS[2]}")$(setBack "$(setFore "" "${COLORS[2]}")" "${COLORS[1]}")"
+  print "$(setBack "$(setFore "%n@%m " "${COLORS[1]}")" "${COLORS[2]}")$(setBack "$(setFore "" "${COLORS[2]}")" "${COLORS[1]}")"
 }
 
 # output current directory info with color
 dir() {
-  print "$(setBack "$(setFore " %~" "${COLORS[2]}")" "${COLORS[1]}")$(setFore "" "${COLORS[1]}")"
+  print "$(setBack "$(setFore " %~ " "${COLORS[2]}")" "${COLORS[1]}")$(setFore "" "${COLORS[1]}")"
 }
 
 # output PROMPT

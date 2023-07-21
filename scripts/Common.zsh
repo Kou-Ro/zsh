@@ -54,6 +54,7 @@ zcon() {
         zcon-update
       else
         print "The command not found : $1"
+        zcon-help
       fi
     fi
   )
