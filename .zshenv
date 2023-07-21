@@ -2,4 +2,4 @@
 export DOTFILES=$HOME/.dotfiles
 
 # set ZDOTDIR
-export ZDOTDIR=$DOTFILES/.zsh
+export ZDOTDIR=$DOTFILES/zsh
