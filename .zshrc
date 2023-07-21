@@ -1,2 +1,2 @@
 # ReadCommon
-sourse "$(dirname "$0")/scripts/Common.zsh"
+source "$(dirname "$0")/scripts/Common.zsh"
