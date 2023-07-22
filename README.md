@@ -14,7 +14,7 @@ v1.1.0
 
 ```shell
 mkdir -p ~/.dotfiles
-git clone https://github.com/Kou-Ro/zsh.git
+git clone --recursive https://github.com/Kou-Ro/zsh.git
 ln -s --backup=simple -S .bak ./.dotfiles/zsh/.zshenv
 ```
 
