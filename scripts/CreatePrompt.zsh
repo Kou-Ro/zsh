@@ -3,7 +3,7 @@ readColor() (
   DEFCOLORS=(7 93)
   COLORPATH="$ZDOTDIR/config/color"
   if [[ -e "$COLORPATH" ]];then
-    source "$COLORPATH"
+    source "$COLORPATH" > /dev/null
   fi
 
   if [[ "${COLORS[$1]}" =~ ^[0-9]+$ ]];then
