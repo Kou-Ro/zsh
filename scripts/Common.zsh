@@ -2,6 +2,9 @@
 export LC_ALL=ja_JP.UTF-8
 export LANG=ja_JP.UTF-8
 
+# Read modules
+source "$ZDOTDIR/scripts/AntigenConfig.zsh" > /dev/null
+
 # Complement settings
 # Use compinit
 autoload -Uz compinit

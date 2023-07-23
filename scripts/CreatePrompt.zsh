@@ -34,7 +34,7 @@ user() {
 
 # output current directory info with color
 dir() {
-  print "$(setBack "$(setFore  "%~ " "$(readColor 2)")" "$(readColor 1)")$(setFore "" "$(readColor 1)")"
+  print "$(setBack "$(setFore  " %~ " "$(readColor 2)")" "$(readColor 1)")$(setFore "" "$(readColor 1)")"
 }
 
 # output PROMPT
