@@ -4,6 +4,9 @@ zcon-help() {
 }
 
 zcon-update() {
+  git -C "$ZDOTDIR" stash save -u "Made by zcon-update"
   git -C "$ZDOTDIR" checkout main
-  git pull
+  git -C "$ZDOTDIR" pull
+  git -C "$ZDOTDIR" stash apply stash@\{0\}
+  git -C "$ZDOTDIR" stash drop stash@\{0\}
 }
