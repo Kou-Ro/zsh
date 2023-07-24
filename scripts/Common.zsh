@@ -8,6 +8,8 @@ source "$ZDOTDIR/scripts/AntigenConfig.zsh" > /dev/null
 # Complement settings
 # Use compinit
 autoload -Uz compinit
+# Add completion dir to fpath
+FPATH="$FPATH:$ZDOTDIR/completion"
 compinit
 # Auto correct commands
 setopt correct
@@ -43,6 +45,10 @@ PROMPT=$(
 if [[ -e "$HOME/.Xmodmap/.Xmodmap" ]]; then
   xmodmap ~/.Xmodmap/.Xmodmap
 fi
+
+# Git completion settings
+zstyle ':completion:*:*:git:*' script "$ZDOTDIR"/completions/git-completion.bash
+autoload -Uz compinit && compinit
 
 # Read definitions
 source "$ZDOTDIR/scripts/Definition.zsh"
