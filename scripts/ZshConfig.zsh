@@ -4,9 +4,11 @@ zcon-help() {
 }
 
 zcon-update() {
+  git -C "$ZDOTDIR" reset --soft origin/main
   git -C "$ZDOTDIR" stash save -u "Made by zcon-update"
   git -C "$ZDOTDIR" checkout main
   git -C "$ZDOTDIR" pull
-  git -C "$ZDOTDIR" stash apply stash@\{0\}
-  git -C "$ZDOTDIR" stash drop stash@\{0\}
+  git -C "$ZDOTDIR" stash pop stash@\{0\}
+  git -C "$ZDOTDIR" checkout --ours .
+  exz
 }

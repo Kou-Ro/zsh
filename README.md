@@ -18,10 +18,12 @@ git clone --recursive https://github.com/Kou-Ro/zsh.git
 ln -s --backup=simple -S .bak ~/.dotfiles/zsh/.zshenv
 ```
 ### アップデート方法
-.zshrcを読み込ませたzshで以下を実行
+zshで以下を実行
 ```shell
 zcon update
 ```
+(変更がある状態で実行するとコンフリクトが発生する可能性があります)
+
 ### 機能
 * 日本語出力
 * コマンド補完
