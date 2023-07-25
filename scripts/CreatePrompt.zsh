@@ -13,31 +13,31 @@ readColor() (
   fi
 )
 
-# output text with foreground color
+# Print text with foreground color
 # $1: input text
 # $2: color
 setFore() {
   print "%F{$2}$1%f"
 }
 
-# output text with background color
+# Print text with background color
 # $1: input text
 # $2: color
 setBack() {
   print "%K{$2}$1%k"
 }
 
-# output user info with color
+# Print user info with color
 user() {
   print "$(setBack "$(setFore "%n@%m " "$(readColor 1)")" "$(readColor 2)")$(setBack "$(setFore "" "$(readColor 2)")" "$(readColor 1)")"
 }
 
-# output current directory info with color
+# Print current directory info with color
 dir() {
   print "$(setBack "$(setFore  " %~ " "$(readColor 2)")" "$(readColor 1)")$(setFore "" "$(readColor 1)")"
 }
 
-# output PROMPT
+# Print PROMPT
 prompt() {
   print "$(user)$(dir) "
 }
