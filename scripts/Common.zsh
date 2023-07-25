@@ -2,9 +2,14 @@
 export LC_ALL=ja_JP.UTF-8
 export LANG=ja_JP.UTF-8
 
+# Read modules
+source "$ZDOTDIR/scripts/AntigenConfig.zsh" > /dev/null
+
 # Complement settings
 # Use compinit
 autoload -Uz compinit
+# Add completion dir to fpath
+FPATH="$FPATH:$ZDOTDIR/completion"
 compinit
 # Auto correct commands
 setopt correct
@@ -41,39 +46,9 @@ if [[ -e "$HOME/.Xmodmap/.Xmodmap" ]]; then
   xmodmap ~/.Xmodmap/.Xmodmap
 fi
 
-# Functions
-# zsh config settings
-zcon() {
-  (
-    source "$ZDOTDIR/scripts/ZshConfig.zsh"
+# Git completion settings
+zstyle ':completion:*:*:git:*' script "$ZDOTDIR"/completions/git-completion.bash
+autoload -Uz compinit && compinit
 
-    if [[ $# -eq 0 ]]; then
-      zcon-help
-    else
-      if [[ "$1" = "update" ]]; then
-        zcon-update
-      else
-        print "The command not found : $1"
-      fi
-    fi
-  )
-}
-# Run mkdir and cd at the same time
-mkcd() {
-  if [[ $# -ge 1 ]]; then
-    if [[ -d "$1" ]]; then
-      cd "$1" || exit
-    else
-      mkdir -p "$1" && cd "$1" || exit
-    fi
-  else
-    cd "$HOME" || exit
-  fi
-}
-
-# Aliases
-alias exz='exec zsh'
-alias \$=''
-alias \#='sudo'
-alias rma='rm -r'
-alias ls='ls --color=auto'
+# Read definitions
+source "$ZDOTDIR/scripts/Definition.zsh"

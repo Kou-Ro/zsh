@@ -1,47 +1,43 @@
 # Read color config
-COLORS=(7 93)
-COLORPATH="$ZDOTDIR/config/color"
-
-readColor() {
-  if [[ -e "$COLORPATH" ]]; then
-    while read -r LINE || [ -n "${LINE}" ]; do
-      if [[ ! "$(print "$LINE" | awk '{ print $1 }')" =~ ^# ]]; then
-        if [[ "$(print "$LINE" | awk '{ print $1 }')" =~ ^COLOR[0-9]\{1,3\}$ && "$(print "$LINE" | awk '{ print $1 }')" != "COLOR0" ]]; then
-          if [[ "$(print "$LINE" | awk '{ print $2 }')" =~ ^[0-9]+$ && "$(print "$LINE" | awk '{ print $2 }')" -le 255 ]]; then
-            COLORS[$(print "$LINE" | awk '{ print $1 }' | sed -E "s/(COLOR)([0-9]+$)/\2/")]=$(print "$LINE" | awk '{ print $2 }')
-          fi
-        fi
-      fi
-    done <"$COLORPATH"
+readColor() (
+  DEFCOLORS=(7 93)
+  COLORPATH="$ZDOTDIR/config/color"
+  if [[ -e "$COLORPATH" ]];then
+    source "$COLORPATH" > /dev/null
   fi
-}
 
-# output text with foreground color
+  if [[ "${COLORS[$1]}" =~ ^[0-9]+$ ]];then
+    print "${COLORS[$1]}"
+  else
+    print "${DEFCOLORS[$1]}"
+  fi
+)
+
+# Print text with foreground color
 # $1: input text
 # $2: color
 setFore() {
   print "%F{$2}$1%f"
 }
 
-# output text with background color
+# Print text with background color
 # $1: input text
 # $2: color
 setBack() {
   print "%K{$2}$1%k"
 }
 
-# output user info with color
+# Print user info with color
 user() {
-  print "$(setBack "$(setFore "%n@%m" "${COLORS[1]}")" "${COLORS[2]}")$(setBack "$(setFore "" "${COLORS[2]}")" "${COLORS[1]}")"
+  print "$(setBack "$(setFore "%n@%m " "$(readColor 1)")" "$(readColor 2)")$(setBack "$(setFore "" "$(readColor 2)")" "$(readColor 1)")"
 }
 
-# output current directory info with color
+# Print current directory info with color
 dir() {
-  print "$(setBack "$(setFore " %~" "${COLORS[2]}")" "${COLORS[1]}")$(setFore "" "${COLORS[1]}")"
+  print "$(setBack "$(setFore  " %~ " "$(readColor 2)")" "$(readColor 1)")$(setFore "" "$(readColor 1)")"
 }
 
-# output PROMPT
+# Print PROMPT
 prompt() {
-  readColor
   print "$(user)$(dir) "
 }

@@ -17,6 +17,12 @@ mkdir -p ~/.dotfiles
 git clone --recursive https://github.com/Kou-Ro/zsh.git
 ln -s --backup=simple -S .bak ~/.dotfiles/zsh/.zshenv
 ```
+### アップデート方法
+zshで以下を実行
+```shell
+zcon update
+```
+(変更がある状態で実行するとコンフリクトが発生する可能性があります)
 
 ### 機能
 * 日本語出力
@@ -24,6 +30,7 @@ ln -s --backup=simple -S .bak ~/.dotfiles/zsh/.zshenv
   * コマンド修正
   * コマンド補完大・小文字両対応
   * コマンド補完矢印キー選択
+  * コマンド実行履歴自動表示
 * ディレクトリ移動補完
   * ディレクトリ名のみでのカレントディレクトリ移動
   * ディレクトリ移動履歴保存
