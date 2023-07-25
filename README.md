@@ -2,7 +2,7 @@
 <h1>zsh</h1>
 </div>
 <div style="text-align: right;">
-v2.0.0
+v2.0.1
 </div>
 
 ---
