@@ -10,7 +10,7 @@ zcon() {
       if [[ "$1" = "update" ]]; then
         zcon-update
       else
-        print "The command not found : $1"
+        print "The command not found : $1" 1>&2
         zcon-help
       fi
     fi
