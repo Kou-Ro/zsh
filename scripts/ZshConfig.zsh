@@ -13,6 +13,5 @@ zcon-update() {
   if [[ "$stashListA" != "$stashListB" ]];then
     git -C "$ZDOTDIR" stash pop stash@\{0\}
   fi
-  git -C "$ZDOTDIR" checkout --ours .
   exz
 }
