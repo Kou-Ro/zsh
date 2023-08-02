@@ -14,7 +14,7 @@ v2.0.1
 
 ```shell
 mkdir -p ~/.dotfiles
-git clone --recursive https://github.com/Kou-Ro/zsh.git
+git clone --recursive https://github.com/Kou-Ro/zsh.git ~/.dotfiles/zsh
 ln -s --backup=simple -S .bak ~/.dotfiles/zsh/.zshenv
 ```
 ### アップデート方法
