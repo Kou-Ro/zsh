@@ -38,8 +38,8 @@ PROMPT=$(
 )
 
 # Set key bind
-if [[ -e "$HOME/Xmodmap/.xmodmaprc" ]]; then
-  xmodmap ~/Xmodmap/.xmodmaprc
+if [[ -e "$DOTFILES/Xmodmap/.xmodmaprc" ]]; then
+  xmodmap "$DOTFILES/Xmodmap/.xmodmaprc"
 fi
 
 # Git completion settings
