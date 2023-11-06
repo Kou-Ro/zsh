@@ -1,5 +1,5 @@
 # Read modules
-source "$ZDOTDIR/scripts/AntigenConfig.zsh" > /dev/null
+source "$ZDOTDIR/scripts/AntigenConfig.zsh"
 
 # Complement settings
 # Use compinit
