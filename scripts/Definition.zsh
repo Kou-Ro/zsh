@@ -30,8 +30,10 @@ mkcd() {
 }
 
 # Aliases
-alias exz='exec zsh'
+alias exz='\exec zsh'
 alias \$=''
-alias \#='sudo'
-alias rma='rm -r'
-alias ls='ls --color=auto'
+alias \#='\sudo'
+alias rma='\rm -r'
+alias ls='\ls --color=auto'
+alias ll='\ls -lah --color=auto'
+alias la='\ls -a --color=auto'
