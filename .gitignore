@@ -2,3 +2,4 @@
 .zcompdump*
 *.swp
 .idea/
+*.zwc
