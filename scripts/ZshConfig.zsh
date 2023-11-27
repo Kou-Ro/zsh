@@ -11,7 +11,7 @@ zcon-update() {
   git -C "$ZDOTDIR" checkout main
   git -C "$ZDOTDIR" pull
   compdir="${ZDOTDIR}/completion"
-  mv "${compdir}/git-completion.bash" "${compdir}/git-completion.bash.old" && \
+  mv "${compdir}/git-completion.bash" "${compdir}/git-completion.bash.old"
   wget -o "${compdir}/git-completion.bash" "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash"
   if [[ ${?} -ne 0 ]]; then
     rm -f "${compdir}/git-completion.bash.old"
@@ -19,7 +19,7 @@ zcon-update() {
     rm -f "${compdir}/git-completion.bash"
     mv "${compdir}/git-completion.bash.old" "${compdir}/git-completion.bash"
   fi
-  mv "${compdir}/_git" "${compdir}/_git.old" && \
+  mv "${compdir}/_git" "${compdir}/_git.old"
   wget -o "${compdir}/_git" "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh"
   if [[ ${?} -ne 0 ]]; then
     rm -f "${compdir}/_git.old"
