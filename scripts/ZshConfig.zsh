@@ -8,7 +8,6 @@ zcon-update() {
   stashListB="$(git -C "$ZDOTDIR" stash list 2>/dev/null )"
   git -C "$ZDOTDIR" stash save -u "Made by zcon-update"
   stashListA="$(git -C "$ZDOTDIR" stash list 2>/dev/null )"
-  git -C "$ZDOTDIR" checkout main
   git -C "$ZDOTDIR" pull
   compdir="${ZDOTDIR}/completion"
   mv "${compdir}/git-completion.bash" "${compdir}/git-completion.bash.old"
