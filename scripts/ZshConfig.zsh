@@ -13,7 +13,8 @@ zcon-update() {
   compdir="${ZDOTDIR}/completion"
   mv "${compdir}/git-completion.bash" "${compdir}/git-completion.bash.old"
   wget -O "${compdir}/git-completion.bash" "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash"
-  if [[ ${?} -ne 0 ]]; then
+  check=${?}
+  if [[ ${check} -eq 0 ]]; then
     rm -f "${compdir}/git-completion.bash.old"
   else
     rm -f "${compdir}/git-completion.bash"
@@ -21,7 +22,8 @@ zcon-update() {
   fi
   mv "${compdir}/_git" "${compdir}/_git.old"
   wget -O "${compdir}/_git" "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh"
-  if [[ ${?} -ne 0 ]]; then
+  check=${?}
+  if [[ ${check} -eq 0 ]]; then
     rm -f "${compdir}/_git.old"
   else
     rm -f "${compdir}/_git"
@@ -32,4 +34,4 @@ zcon-update() {
     git -C "$ZDOTDIR" stash pop stash@\{0\}
   fi
   exz
-  }
+}
