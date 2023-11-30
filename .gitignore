@@ -2,3 +2,6 @@
 .zcompdump*
 *.swp
 .idea/
+*.zwc
+*git-completion*
+*_git*

@@ -1,9 +1,5 @@
-# Japanese settings
-export LC_ALL=ja_JP.UTF-8
-export LANG=ja_JP.UTF-8
-
 # Read modules
-source "$ZDOTDIR/scripts/AntigenConfig.zsh" > /dev/null
+source "$ZDOTDIR/scripts/AntigenConfig.zsh"
 
 # Complement settings
 # Use compinit
@@ -42,8 +38,8 @@ PROMPT=$(
 )
 
 # Set key bind
-if [[ -e "$HOME/.Xmodmap/.Xmodmap" ]]; then
-  xmodmap ~/.Xmodmap/.Xmodmap
+if [[ -e "$DOTFILES/Xmodmap/.xmodmaprc" ]]; then
+  xmodmap "$DOTFILES/Xmodmap/.xmodmaprc"
 fi
 
 # Git completion settings
