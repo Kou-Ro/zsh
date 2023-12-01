@@ -39,4 +39,6 @@ alias ll='\ls -lah --color=auto'
 alias la='\ls -a --color=auto'
 alias lsla='ll'
 alias lsa='la'
-alias vim='nvim'
+if which nvim > "/dev/null" ; then
+  alias vim='nvim'
+fi
