@@ -5,3 +5,4 @@
 *.zwc
 *git-completion*
 *_git*
+.zshenv
