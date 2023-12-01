@@ -1,5 +1,0 @@
-# set DOTFILES
-export DOTFILES=$HOME/.dotfiles
-
-# set ZDOTDIR
-export ZDOTDIR=$DOTFILES/zsh
