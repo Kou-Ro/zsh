@@ -9,9 +9,10 @@
 以下のコマンドを実行する
 
 ```shell
-mkdir -p ~/.dotfiles
-git clone --recursive https://github.com/Kou-Ro/zsh.git ~/.dotfiles/zsh
-ln -s --backup=simple -S .bak ~/.dotfiles/zsh/.zshenv ~/
+# 任意のディレクトリで以下を実行
+git clone --recursive https://github.com/Kou-Ro/zsh.git
+cd zsh
+./installer.zsh
 ```
 ### アップデート方法
 zshで以下を実行

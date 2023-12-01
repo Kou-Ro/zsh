@@ -12,4 +12,4 @@ git -C "${target}" update-index --skip-worktree .zlogout
 sed -e "s/DOTFILES=\"\${HOME}\/.dotfiles\"/DOTFILES=\"$(echo "${target}" | sed  -e "s/\//\\\\\\//g")\"/" "${target}/.zshenv.def" > "${target}/.zshenv"
 
 # Create .zshenv symbolic link in Home
-ln -s --backup=simple -S .bak ~/.dotfiles/zsh/.zshenv ~/
+ln -s --backup=simple -S .bak "${target}/.zshenv" "${HOME}/"
