@@ -40,31 +40,28 @@ zsh-update() {
   exz
 }
 
-nvim-update(){
-  git -C "${DOTFILES}/nvim" reset --soft origin/main
-  stashListB="$(git -C "${DOTFILES}/nvim" stash list 2>/dev/null )"
-  git -C "${DOTFILES}/nvim" stash save -u "Made by dcon-update"
-  stashListA="$(git -C "${DOTFILES}/nvim" stash list 2>/dev/null )"
-  git -C "${DOTFILES}/nvim" pull
-  git -C "${DOTFILES}/nvim" submodule update
-}
-
 help-update(){
-  dcon-help() {
     print "Please specify subcommands \n"
     print "zsh    update zsh config"
     print "nvim   update nvim config"
     print "help   output  this help"
-  }
 }
 
 dcon-update(){
   if [[ "${1}" = "zsh" ]];then
     zsh-update
   elif [[ "${1}" = "nvim" ]];then
-    nvim-update
+    if [[ -f "${DOTFILES}/nvim/DotfilesConfig.zsh" ]];then
+      nvim-update
+    else
+      print "Module nvim not found"
+    fi
+  elif [[ "${1}" = "help" ]];then
+    help-update
   elif [[ "${1}" = "all" ]];then
     zsh-update
-    nvim-update
+    if [[ -f "${DOTFILES}/nvim/DotfilesConfig.zsh" ]];then
+      nvim-update
+    fi
   fi
 }

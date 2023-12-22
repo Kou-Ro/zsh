@@ -17,7 +17,12 @@ cd zsh
 ### アップデート方法
 zshで以下を実行
 ```shell
-zcon update
+dcon update zsh
+```
+以下を使用するとすべての.dotfilesリポジトリがアップデートされます。
+([.dotfiles](https://github.copm/Kou-Ro/.dotfiles)を利用している場合のみ)
+```shell
+dcon update zsh
 ```
 (変更がある状態で実行するとコンフリクトが発生する可能性があります)
 
