@@ -12,7 +12,7 @@
 # 任意のディレクトリで以下を実行
 git clone --recursive https://github.com/Kou-Ro/zsh.git
 cd zsh
-./installer.zsh
+./installer
 ```
 ### アップデート方法
 zshで以下を実行
