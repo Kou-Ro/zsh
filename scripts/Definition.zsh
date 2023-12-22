@@ -1,17 +1,32 @@
 # Functions
 # zsh config settings
-zcon() {
+dcon() {
   (
-    source "$ZDOTDIR/scripts/ZshConfig.zsh"
+    source "$ZDOTDIR/scripts/DotfilesConfig.zsh"
 
-    if [[ $# -eq 0 ]]; then
-      zcon-help
+    if [[ "${#}" -eq 0 ]]; then
+      dcon-help
     else
-      if [[ "$1" = "update" ]]; then
-        zcon-update
+      if [[ "${1}" = "update" ]]; then
+        if [[ "${#}" -eq 1 ]]; then
+          dcon-update all
+        elif [[ "${2}" = "all" ]];then
+          dcon-update all
+        elif [[ "${2}" = "zsh" ]];then
+          dcon-update zsh
+        elif [[ "${2}" = "nvim" ]];then
+          dcon-update nvim
+        elif [[ "${2}" = "help" ]];then
+          dcon-update help
+        else
+          print "The command not found : ${1} ${2}" 1>&2
+          dcon-update help
+        fi
+      elif [[ "${1}" = "help" ]]; then
+        dcon-help
       else
-        print "The command not found : $1" 1>&2
-        zcon-help
+        print "The command not found : ${1}" 1>&2
+        dcon-help
       fi
     fi
   )
