@@ -53,7 +53,7 @@ dcon() {
             elif [[ "${2}" = "nvim" ]];then
               if [[ -f "${DOTFILES}/nvim/DotfilesConfig.zsh" ]];then
                 source "${DOTFILES}/nvim/DotfilesConfig.zsh"
-                dcon-help
+                dcon-update
               fi
             else
               print "The command not found : ${1} ${2}" 1>&2
