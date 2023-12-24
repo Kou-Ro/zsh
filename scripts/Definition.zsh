@@ -2,31 +2,67 @@
 # zsh config settings
 dcon() {
   (
-    source "$ZDOTDIR/scripts/DotfilesConfig.zsh"
 
-    if [[ "${#}" -eq 0 ]]; then
-      dcon-help
-    else
-      if [[ "${1}" = "update" ]]; then
-        if [[ "${#}" -eq 1 ]]; then
-          dcon-update all
-        elif [[ "${2}" = "all" ]];then
-          dcon-update all
-        elif [[ "${2}" = "zsh" ]];then
-          dcon-update zsh
-        elif [[ "${2}" = "nvim" ]];then
-          dcon-update nvim
-        elif [[ "${2}" = "help" ]];then
-          dcon-update help
-        else
-          print "The command not found : ${1} ${2}" 1>&2
-          dcon-update help
-        fi
-      elif [[ "${1}" = "help" ]]; then
+    if [[ -f "${DOTFILES}/DotfilesConfig.zsh" ]];then
+      source "${DOTFILES}/DotfilesConfig.zsh"
+      if [[ "${#}" -eq 0 ]];then
         dcon-help
       else
-        print "The command not found : ${1}" 1>&2
+        if [[ "${1}" = "help" ]];then
+          dcon-help
+        elif [[ "${1}" = "update" ]];then
+          dcon-update
+        else
+          print "The command not found : ${1}" 1>&2
+          dcon-help
+        fi
+      fi
+    else
+      if [[ "${#}" -eq 0 ]];then
+        source "${DOTFILES}/zsh/scripts/DotfilesConfig.zsh"
         dcon-help
+      else
+        if [[ "${1}" = "help" ]];then
+          source "${DOTFILES}/zsh/scripts/DotfilesConfig.zsh"
+          dcon-help
+        elif [[ "${1}" = "update" ]];then
+          if [[ "${#}" -eq 1 ]];then
+            if [[ -f "${DOTFILES}/nvim/DotfilesConfig.zsh" ]];then
+              source "${DOTFILES}/nvim/DotfilesConfig.zsh"
+              dcon-update
+            fi
+            if [[ -f "${DOTFILES}/zsh/scripts/DotfilesConfig.zsh" ]];then
+              source "${DOTFILES}/zsh/scripts/DotfilesConfig.zsh"
+              dcon-update
+            fi
+          else
+            if [[ "${2}" = "all" ]];then
+              if [[ -f "${DOTFILES}/nvim/DotfilesConfig.zsh" ]];then
+                source "${DOTFILES}/nvim/DotfilesConfig.zsh"
+                dcon-update
+              fi
+              if [[ -f "${DOTFILES}/zsh/scripts/DotfilesConfig.zsh" ]];then
+                source "${DOTFILES}/zsh/scripts/DotfilesConfig.zsh"
+                dcon-update
+              fi
+            elif [[ "${2}" = "zsh" ]];then
+              if [[ -f "${DOTFILES}/zsh/scripts/DotfilesConfig.zsh" ]];then
+                source "${DOTFILES}/zsh/scripts/DotfilesConfig.zsh"
+                dcon-update
+              fi
+            elif [[ "${2}" = "nvim" ]];then
+              if [[ -f "${DOTFILES}/nvim/DotfilesConfig.zsh" ]];then
+                source "${DOTFILES}/nvim/DotfilesConfig.zsh"
+                dcon-help
+              fi
+            else
+              print "The command not found : ${1} ${2}" 1>&2
+            fi
+          fi
+        else
+          print "The command not found : ${1}" 1>&2
+          dcon-help
+        fi
       fi
     fi
   )
