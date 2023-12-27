@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-target="$(cd "$(pwd)/$(dirname "${0}")" && pwd)"
+target="$(cd "$(dirname "${0}")" && pwd)"
 
 # Skip worktree
 git -C "${target}" update-index --skip-worktree .zshrc
