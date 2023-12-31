@@ -90,6 +90,8 @@ alias ll='\ls -lah --color=auto'
 alias la='\ls -a --color=auto'
 alias lsla='ll'
 alias lsa='la'
+alias mv='mv -i'
+alias cp='cp -i'
 if which nvim > "/dev/null" ; then
   alias vim='nvim'
 fi
