@@ -1,6 +1,6 @@
 # Read color config
 readColor() (
-  DEFCOLORS=(248 93)
+  DEFCOLORS=(250 93)
   COLORPATH="$ZDOTDIR/config/color"
   if [[ -e "$COLORPATH" ]];then
     source "$COLORPATH" > /dev/null
