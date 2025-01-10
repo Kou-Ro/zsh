@@ -46,5 +46,7 @@ fi
 zstyle ':completion:*:*:git:*' script "$ZDOTDIR"/completions/git-completion.bash
 autoload -Uz compinit && compinit
 
+# Default editor settings
+export EDITOR="nvim"
 # Read definitions
 source "$ZDOTDIR/scripts/Definition.zsh"
