@@ -42,6 +42,11 @@ if [[ -e "$DOTFILES/Xmodmap/.xmodmaprc" ]]; then
   xmodmap "$DOTFILES/Xmodmap/.xmodmaprc"
 fi
 
+# TeX settings
+if [[ -d "${DOTFILES}/TeX/" && which -s kpsewhich ]];then
+    export TEXMFCNF="${DOTFILES}/TeX:$(kpsewhich -var-value=TEXMFCNF)"
+fi
+
 # Git completion settings
 zstyle ':completion:*:*:git:*' script "$ZDOTDIR"/completions/git-completion.bash
 autoload -Uz compinit && compinit
